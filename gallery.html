@@ -4,399 +4,120 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gallery | Pankaj Furniture – Jamshedpur</title>
-<meta name="description" content="Browse our complete gallery of custom furniture — beds, sofas, wardrobes, dining sets and more. Over 100 real projects from Jamshedpur homes.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-
 <style>
-:root {
-  --gold:      #C8922A;
-  --gold-lt:   #E8B84B;
-  --cream:     #F7F3EE;
-  --sand:      #E8DDD0;
-  --warm:      #C9B49A;
-  --bark:      #8B6E52;
-  --mahogany:  #5C3D2E;
-  --espresso:  #2C1A0E;
-  --charcoal:  #1A1208;
-  --white:     #FFFFFF;
-  --font-display: 'Cormorant Garamond', serif;
-  --font-body:    'DM Sans', sans-serif;
-  --ease:     cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --bg:        var(--cream);
-  --surface:   var(--white);
-  --text:      var(--espresso);
-  --text-m:    #7A6558;
-  --nav-bg:    rgba(247,243,238,0.95);
-  --nav-text:  var(--espresso);
-}
-[data-theme="dark"] {
-  --bg:       var(--charcoal);
-  --surface:  var(--espresso);
-  --text:     var(--cream);
-  --text-m:   rgba(247,243,238,0.55);
-  --nav-bg:   rgba(26,18,8,0.95);
-  --nav-text: var(--cream);
-}
-
-*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; font-size:16px; }
-body {
-  font-family: var(--font-body);
-  background: var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
-  transition: background .4s, color .4s;
-  min-height: 100vh;
-}
-::-webkit-scrollbar { width:4px; }
-::-webkit-scrollbar-track { background:var(--bg); }
-::-webkit-scrollbar-thumb { background:var(--warm); border-radius:2px; }
-
-/* ─── PAGE ENTER ANIMATION ─── */
-/* The page slides up from bottom — matches the transition overlay sliding up from index */
-body {
-  animation: pageEnter .55s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-@keyframes pageEnter {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ─── NAV ─── */
-nav {
-  position:fixed; inset:0 0 auto 0; z-index:800;
-  height:68px; padding:0 5%;
-  display:flex; align-items:center; justify-content:space-between;
-  background: var(--nav-bg);
-  backdrop-filter: blur(18px);
-  box-shadow: 0 1px 0 rgba(0,0,0,.08);
-}
-.nav-logo {
-  font-family:var(--font-display); font-size:1.45rem; font-weight:600;
-  color:var(--nav-text); text-decoration:none; letter-spacing:.5px;
-}
-.nav-back {
-  display:flex; align-items:center; gap:8px;
-  font-size:.82rem; font-weight:500; color:var(--gold);
-  text-decoration:none; letter-spacing:.5px;
-  transition: gap .2s, color .2s;
-}
-.nav-back:hover { gap:12px; color:var(--bark); }
-.nav-right { display:flex; align-items:center; gap:14px; }
-.theme-toggle {
-  width:38px; height:38px; border-radius:50%;
-  border:1.5px solid rgba(0,0,0,.12);
-  background:transparent; cursor:pointer; color:var(--nav-text);
-  display:flex; align-items:center; justify-content:center; font-size:1.1rem;
-  transition: all .3s;
-}
-[data-theme="dark"] .theme-toggle { border-color:rgba(255,255,255,.2); }
-.theme-toggle:hover { background:rgba(0,0,0,.06); }
-[data-theme="dark"] .theme-toggle:hover { background:rgba(255,255,255,.08); }
-.nav-cta {
-  padding:10px 22px; border-radius:100px;
-  background:var(--mahogany); color:var(--cream);
-  font-size:.8rem; font-weight:600;
-  text-decoration:none; display:flex; align-items:center; gap:8px;
-  transition: all .3s;
-}
-.nav-cta:hover { background:var(--gold); transform:translateY(-1px); }
-
-/* ─── GALLERY HERO ─── */
-.gallery-hero {
-  padding-top:68px;
-  position:relative; overflow:hidden;
-  min-height:340px;
-  display:flex; align-items:center;
-}
-.gallery-hero::before {
-  content:''; position:absolute; inset:0;
-  background: url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1800&q=90') center/cover;
-}
-.gallery-hero::after {
-  content:''; position:absolute; inset:0;
-  background:linear-gradient(135deg, rgba(10,6,2,.72) 0%, rgba(44,26,14,.55) 60%, rgba(10,6,2,.72) 100%);
-}
-.hero-inner {
-  position:relative; z-index:1;
-  max-width:1200px; margin:0 auto; padding:60px 5%;
-  display:flex; align-items:center; justify-content:space-between; gap:48px; flex-wrap:wrap;
-  width:100%;
-}
-.hero-eyebrow {
-  font-size:.7rem; font-weight:600; letter-spacing:3px; text-transform:uppercase;
-  color:var(--gold); margin-bottom:12px;
-  display:flex; align-items:center; gap:10px;
-}
-.hero-eyebrow::before { content:''; display:block; width:22px; height:1px; background:var(--gold); }
-.hero-h1 {
-  font-family:var(--font-display); font-size:clamp(2.2rem,5vw,4rem);
-  font-weight:300; color:var(--cream); line-height:1.1; margin-bottom:12px;
-}
-.hero-h1 em { font-style:italic; color:var(--gold-lt); }
-.hero-sub { font-size:.9rem; color:rgba(247,243,238,.6); line-height:1.7; max-width:480px; }
-
-/* Glass stats card */
-.hero-stats {
-  display:flex; gap:0;
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border:1px solid rgba(255,255,255,0.18);
-  border-radius:24px; overflow:hidden;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.22);
-  flex-shrink:0;
-}
-.stat { text-align:center; padding:28px 36px; position:relative; }
-.stat + .stat::before {
-  content:''; position:absolute; left:0; top:20%; bottom:20%;
-  width:1px; background:rgba(255,255,255,0.14);
-}
-.stat-num {
-  font-family:var(--font-display); font-size:2.4rem; font-weight:700;
-  color:var(--gold-lt); line-height:1;
-  text-shadow: 0 2px 12px rgba(232,184,75,0.35);
-}
-.stat-lbl { font-size:.68rem; letter-spacing:1.8px; text-transform:uppercase; color:rgba(247,243,238,0.5); margin-top:5px; }
-
-/* ─── FILTER BAR ─── */
-.filter-wrap {
-  background:var(--surface); border-bottom:1px solid rgba(0,0,0,.06);
-  position:sticky; top:68px; z-index:700; padding:0 5%;
-}
-[data-theme="dark"] .filter-wrap { border-color:rgba(255,255,255,.06); }
-.filter-inner {
-  max-width:1200px; margin:0 auto;
-  display:flex; align-items:center; gap:8px; overflow-x:auto; padding:14px 0;
-  scrollbar-width:none;
-}
-.filter-inner::-webkit-scrollbar { display:none; }
-.filter-btn {
-  flex-shrink:0; padding:8px 20px; border-radius:100px;
-  font-family:var(--font-body); font-size:.78rem; font-weight:500; letter-spacing:.3px;
-  cursor:pointer; border:1.5px solid var(--sand); color:var(--text-m); background:transparent;
-  transition: all .25s var(--ease); white-space:nowrap;
-}
-[data-theme="dark"] .filter-btn { border-color:rgba(255,255,255,.1); color:rgba(247,243,238,.5); }
-.filter-btn:hover { border-color:var(--bark); color:var(--text); }
-.filter-btn.active { background:var(--mahogany); border-color:var(--mahogany); color:var(--cream); }
-.filter-count { margin-left:5px; font-size:.7rem; opacity:.7; background:rgba(0,0,0,.08); padding:1px 6px; border-radius:20px; }
-.filter-btn.active .filter-count { background:rgba(255,255,255,.15); }
-
-.search-wrap {
-  margin-left:auto; flex-shrink:0;
-  display:flex; align-items:center; gap:8px;
-  background:var(--bg); border:1.5px solid var(--sand); border-radius:100px;
-  padding:7px 16px; min-width:180px;
-}
-[data-theme="dark"] .search-wrap { border-color:rgba(255,255,255,.1); }
-.search-wrap input { border:none; background:transparent; outline:none; font-family:var(--font-body); font-size:.8rem; color:var(--text); width:100%; }
-.search-wrap input::placeholder { color:var(--text-m); }
-.search-wrap span { color:var(--text-m); font-size:.9rem; }
-
-/* ─── GALLERY GRID ─── */
-.gallery-main { max-width:1280px; margin:0 auto; padding:32px 5% 80px; }
-
-.masonry { columns:4; column-gap:16px; }
-@media(max-width:1100px) { .masonry { columns:3; } }
-@media(max-width:700px)  { .masonry { columns:2; } }
-@media(max-width:400px)  { .masonry { columns:1; } }
-
-.masonry-item {
-  break-inside:avoid; margin-bottom:16px;
-  border-radius:14px; overflow:hidden;
-  position:relative; cursor:pointer;
-  background:var(--surface);
-  opacity:0; transform:scale(0.95);
-  transition: opacity .5s var(--ease-out), transform .5s var(--ease-out);
-}
-.masonry-item.visible { opacity:1; transform:scale(1); }
-.masonry-item.hidden { display:none; }
-.masonry-item img { width:100%; display:block; transition: transform .5s var(--ease); }
-.masonry-item:hover img { transform:scale(1.04); }
-
-.item-overlay {
-  position:absolute; inset:0;
-  background:linear-gradient(to top, rgba(44,26,14,.85) 0%, transparent 50%);
-  opacity:0; transition: opacity .35s;
-  display:flex; flex-direction:column; justify-content:flex-end; padding:18px;
-}
-.masonry-item:hover .item-overlay { opacity:1; }
-.item-tag { font-size:.68rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:4px; }
-.item-title { font-family:var(--font-display); font-size:1.05rem; color:var(--cream); font-weight:600; }
-
-.item-expand {
-  position:absolute; top:12px; right:12px; width:32px; height:32px; border-radius:50%;
-  background:rgba(255,255,255,.15); backdrop-filter:blur(8px);
-  display:flex; align-items:center; justify-content:center;
-  font-size:.75rem; color:var(--white); opacity:0; transition:opacity .3s, transform .3s;
-}
-.masonry-item:hover .item-expand { opacity:1; transform:scale(1.1); }
-
-.no-results { display:none; text-align:center; padding:80px 20px; font-family:var(--font-display); font-size:1.5rem; color:var(--text-m); font-style:italic; }
-.no-results.show { display:block; }
-
-.result-info { font-size:.8rem; color:var(--text-m); margin-bottom:20px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
-.result-info strong { color:var(--text); }
-
-/* ─── LIGHTBOX ─── */
-.lightbox {
-  position:fixed; inset:0; z-index:9000;
-  background:rgba(10,6,2,.93);
-  display:flex; align-items:center; justify-content:center;
-  opacity:0; visibility:hidden; transition:opacity .35s, visibility .35s;
-}
-.lightbox.open { opacity:1; visibility:visible; }
-.lb-inner { position:relative; max-width:90vw; max-height:90vh; display:flex; flex-direction:column; align-items:center; gap:16px; }
-.lb-img {
-  max-width:88vw; max-height:78vh; border-radius:12px; object-fit:contain;
-  transform:scale(0.9); opacity:0;
-  transition: transform .4s var(--ease-out), opacity .4s;
-}
-.lightbox.open .lb-img { transform:scale(1); opacity:1; }
-.lb-caption { text-align:center; color:var(--cream); }
-.lb-cat { font-size:.7rem; letter-spacing:2px; color:var(--gold); text-transform:uppercase; margin-bottom:4px; }
-.lb-title { font-family:var(--font-display); font-size:1.3rem; }
-.lb-close {
-  position:absolute; top:-50px; right:0; width:40px; height:40px; border-radius:50%;
-  background:rgba(255,255,255,.1); border:none; color:var(--cream);
-  cursor:pointer; font-size:1.2rem; display:flex; align-items:center; justify-content:center;
-  transition: background .2s, transform .2s;
-}
-.lb-close:hover { background:rgba(255,255,255,.2); transform:rotate(90deg); }
-.lb-prev, .lb-next {
-  position:fixed; top:50%; transform:translateY(-50%);
-  width:48px; height:48px; border-radius:50%;
-  background:rgba(255,255,255,.1); border:none; color:var(--cream);
-  cursor:pointer; font-size:1.2rem; display:flex; align-items:center; justify-content:center;
-  transition: background .2s, transform .2s; z-index:1;
-}
-.lb-prev { left:24px; }
-.lb-next { right:24px; }
-.lb-prev:hover { background:rgba(255,255,255,.2); transform:translateY(-50%) translateX(-3px); }
-.lb-next:hover { background:rgba(255,255,255,.2); transform:translateY(-50%) translateX(3px); }
-.lb-counter { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); font-size:.78rem; color:rgba(255,255,255,.45); letter-spacing:1px; }
-
-/* ─── CTA STRIP ─── */
-.cta-strip { background:var(--mahogany); padding:48px 5%; text-align:center; }
-.cta-strip h2 { font-family:var(--font-display); font-size:clamp(1.6rem,3vw,2.4rem); font-weight:300; color:var(--cream); margin-bottom:8px; }
-.cta-strip h2 em { font-style:italic; color:var(--gold-lt); }
-.cta-strip p { color:rgba(247,243,238,.5); font-size:.88rem; margin-bottom:28px; }
-.strip-btns { display:flex; gap:14px; align-items:center; justify-content:center; flex-wrap:wrap; }
-.btn-wa {
-  background:#25D366; color:var(--white); padding:14px 28px; border-radius:100px;
-  font-size:.86rem; font-weight:600; text-decoration:none; display:flex; align-items:center; gap:10px;
-  transition:all .3s; box-shadow:0 8px 24px rgba(37,211,102,.3);
-}
-.btn-wa:hover { background:#20bb5a; transform:translateY(-2px); }
-.btn-wa svg { width:18px; height:18px; fill:#ffffff; flex-shrink:0; }
-.btn-call {
-  border:1.5px solid rgba(247,243,238,.3); color:var(--cream); background:transparent;
-  padding:14px 28px; border-radius:100px; font-size:.86rem;
-  text-decoration:none; display:flex; align-items:center; gap:10px; transition:all .3s;
-}
-.btn-call:hover { border-color:var(--gold); color:var(--gold); }
-
-/* ─── FOOTER MINI ─── */
-.footer-mini {
-  background:var(--charcoal); padding:24px 5%;
-  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
-}
-.f-copy { font-size:.76rem; color:rgba(247,243,238,.25); }
-.f-links-row { display:flex; gap:20px; }
-.f-links-row a { font-size:.76rem; color:rgba(247,243,238,.35); text-decoration:none; transition:color .2s; }
-.f-links-row a:hover { color:var(--gold); }
-
-/* ─── FLOATERS ─── */
-.float-wa {
-  position:fixed; bottom:26px; right:26px; z-index:600;
-  width:54px; height:54px; border-radius:50%; background:#25D366;
-  display:flex; align-items:center; justify-content:center;
-  text-decoration:none;
-  box-shadow:0 8px 28px rgba(37,211,102,.48);
-  animation:pulse 3s ease-in-out infinite; transition:transform .3s;
-}
-.float-wa:hover { transform:scale(1.1); }
-.float-wa svg { width:28px; height:28px; fill:#ffffff; }
-@keyframes pulse { 0%,100%{box-shadow:0 8px 28px rgba(37,211,102,.48)} 50%{box-shadow:0 8px 44px rgba(37,211,102,.75)} }
+:root{--gold:#C8922A;--gold-lt:#E8B84B;--cream:#F7F3EE;--sand:#E8DDD0;--warm:#C9B49A;--bark:#8B6E52;--mahogany:#5C3D2E;--espresso:#2C1A0E;--charcoal:#1A1208;--bg:var(--cream);--surface:var(--white,#fff);--text:var(--espresso);--text-m:#7A6558;--nav-bg:rgba(247,243,238,.95);--nav-text:var(--espresso)}
+[data-theme=dark]{--bg:var(--charcoal);--surface:var(--espresso);--text:var(--cream);--text-m:rgba(247,243,238,.55);--nav-bg:rgba(26,18,8,.95);--nav-text:var(--cream)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;transition:background .4s,color .4s}
+nav{position:fixed;inset:0 0 auto 0;z-index:800;height:68px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:var(--nav-bg);backdrop-filter:blur(18px);box-shadow:0 1px 0 rgba(0,0,0,.08)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;color:var(--nav-text);text-decoration:none}
+.nav-back{font-size:.82rem;font-weight:500;color:var(--gold);text-decoration:none}
+.nav-right{display:flex;align-items:center;gap:14px}
+.theme-toggle{width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(0,0,0,.12);background:transparent;cursor:pointer;font-size:1.1rem}
+.nav-cta{padding:10px 22px;border-radius:100px;background:var(--mahogany);color:#F7F3EE;font-size:.8rem;font-weight:600;text-decoration:none}
+.gallery-hero{padding-top:68px;position:relative;overflow:hidden;min-height:320px;display:flex;align-items:center}
+.gallery-hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1800&q=90') center/cover}
+.gallery-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,6,2,.72),rgba(44,26,14,.55) 60%,rgba(10,6,2,.72))}
+.hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:60px 5%;display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap;width:100%}
+.hero-eyebrow{font-size:.7rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:300;color:#F7F3EE;line-height:1.1;margin-bottom:12px}
+.hero-h1 em{font-style:italic;color:var(--gold-lt)}
+.hero-sub{font-size:.9rem;color:rgba(247,243,238,.6);line-height:1.7}
+.hero-stats{display:flex;background:rgba(255,255,255,.08);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.18);border-radius:24px;overflow:hidden;flex-shrink:0}
+.stat{text-align:center;padding:28px 36px;position:relative}
+.stat+.stat::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:1px;background:rgba(255,255,255,.14)}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:700;color:var(--gold-lt);line-height:1}
+.stat-lbl{font-size:.68rem;letter-spacing:1.8px;text-transform:uppercase;color:rgba(247,243,238,.5);margin-top:5px}
+.filter-wrap{background:var(--surface);border-bottom:1px solid rgba(0,0,0,.06);position:sticky;top:68px;z-index:700;padding:0 5%}
+.filter-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:8px;overflow-x:auto;padding:14px 0;scrollbar-width:none}
+.filter-inner::-webkit-scrollbar{display:none}
+.filter-btn{flex-shrink:0;padding:8px 20px;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:500;cursor:pointer;border:1.5px solid var(--sand);color:var(--text-m);background:transparent;white-space:nowrap;transition:all .2s}
+.filter-btn:hover{border-color:var(--bark);color:var(--text)}
+.filter-btn.active{background:var(--mahogany);border-color:var(--mahogany);color:#F7F3EE}
+.filter-count{margin-left:5px;font-size:.7rem;opacity:.7;background:rgba(0,0,0,.08);padding:1px 6px;border-radius:20px}
+.filter-btn.active .filter-count{background:rgba(255,255,255,.15)}
+.search-wrap{margin-left:auto;flex-shrink:0;display:flex;align-items:center;gap:8px;background:var(--bg);border:1.5px solid var(--sand);border-radius:100px;padding:7px 16px;min-width:180px}
+.search-wrap input{border:none;background:transparent;outline:none;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);width:100%}
+.gallery-main{max-width:1280px;margin:0 auto;padding:32px 5% 80px}
+.result-info{font-size:.8rem;color:var(--text-m);margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.result-info strong{color:var(--text)}
+.masonry{columns:4;column-gap:16px}
+@media(max-width:1100px){.masonry{columns:3}}
+@media(max-width:700px){.masonry{columns:2}}
+@media(max-width:400px){.masonry{columns:1}}
+.masonry-item{break-inside:avoid;margin-bottom:16px;border-radius:14px;overflow:hidden;position:relative;cursor:pointer;background:#eee;box-shadow:0 4px 12px rgba(0,0,0,.05);transition:box-shadow .3s,transform .3s}
+.masonry-item:hover{box-shadow:0 20px 30px -12px rgba(0,0,0,.3);transform:translateY(-4px)}
+.masonry-item img{width:100%;display:block;transition:transform .4s;pointer-events:none;user-select:none}
+.masonry-item:hover img{transform:scale(1.04)}
+.item-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(44,26,14,.85),transparent 55%);opacity:0;transition:opacity .3s;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;pointer-events:none}
+.masonry-item:hover .item-overlay{opacity:1}
+.item-tag{font-size:.68rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.item-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:#F7F3EE;font-weight:600}
+.no-results{display:none;text-align:center;padding:80px 20px;font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--text-m);font-style:italic}
+.no-results.show{display:block}
+.cta-strip{background:var(--mahogany);padding:48px 5%;text-align:center}
+.cta-strip h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;color:#F7F3EE;margin-bottom:8px}
+.cta-strip h2 em{font-style:italic;color:var(--gold-lt)}
+.cta-strip p{color:rgba(247,243,238,.5);font-size:.88rem;margin-bottom:28px}
+.strip-btns{display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap}
+.btn-wa{background:#25D366;color:#fff;padding:14px 28px;border-radius:100px;font-size:.86rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:10px;transition:all .3s}
+.btn-wa:hover{background:#20bb5a;transform:translateY(-2px)}
+.btn-call{border:1.5px solid rgba(247,243,238,.3);color:#F7F3EE;background:transparent;padding:14px 28px;border-radius:100px;font-size:.86rem;text-decoration:none;display:flex;align-items:center;gap:10px;transition:all .3s}
+.btn-call:hover{border-color:var(--gold);color:var(--gold)}
+.footer-mini{background:var(--charcoal);padding:24px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.f-copy{font-size:.76rem;color:rgba(247,243,238,.25)}
+.f-links-row{display:flex;gap:20px}
+.f-links-row a{font-size:.76rem;color:rgba(247,243,238,.35);text-decoration:none}
+.f-links-row a:hover{color:var(--gold)}
+.float-wa{position:fixed;bottom:26px;right:26px;z-index:600;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 8px 28px rgba(37,211,102,.48);animation:wapulse 3s ease-in-out infinite}
+.float-wa svg{width:28px;height:28px;fill:#fff}
+@keyframes wapulse{0%,100%{box-shadow:0 8px 28px rgba(37,211,102,.48)}50%{box-shadow:0 8px 44px rgba(37,211,102,.75)}}
 </style>
 </head>
 <body>
 
-<!-- FLOATER — WhatsApp SVG -->
-<a href="https://wa.me/919234734763?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20custom%20furniture" class="float-wa" title="WhatsApp">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
+<a href="https://wa.me/919234734763" class="float-wa">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
-<!-- ══ NAV ══ -->
 <nav>
   <a href="index.html" class="nav-logo">Pankaj Furniture</a>
   <a href="index.html" class="nav-back">← Back to Home</a>
   <div class="nav-right">
-    <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+    <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()">🌙</button>
     <a href="tel:+919234734763" class="nav-cta">📞 Call Now</a>
   </div>
 </nav>
 
-<!-- ══ HERO BANNER ══ -->
 <div class="gallery-hero">
   <div class="hero-inner">
-    <div class="hero-text">
+    <div>
       <div class="hero-eyebrow">Our Portfolio</div>
       <h1 class="hero-h1">Complete <em>Gallery</em></h1>
       <p class="hero-sub">Real furniture. Real homes. Browse our full portfolio of custom-crafted pieces delivered across Jamshedpur and Jharkhand.</p>
     </div>
     <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num" id="totalCount">—</div>
-        <div class="stat-lbl">Photos</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">15+</div>
-        <div class="stat-lbl">Years</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">5★</div>
-        <div class="stat-lbl">Rating</div>
-      </div>
+      <div class="stat"><div class="stat-num">57+</div><div class="stat-lbl">Photos</div></div>
+      <div class="stat"><div class="stat-num">15+</div><div class="stat-lbl">Years</div></div>
+      <div class="stat"><div class="stat-num">5★</div><div class="stat-lbl">Rating</div></div>
     </div>
   </div>
 </div>
 
-<!-- ══ FILTER BAR ══ -->
 <div class="filter-wrap">
-  <div class="filter-inner" id="filterBar">
-    <button class="filter-btn active" data-cat="all" onclick="filterGallery('all', this)">
-      All <span class="filter-count" id="count-all">0</span>
-    </button>
-    <button class="filter-btn" data-cat="bedroom" onclick="filterGallery('bedroom', this)">
-      🛏 Bedroom <span class="filter-count" id="count-bedroom">0</span>
-    </button>
-    <button class="filter-btn" data-cat="sofa" onclick="filterGallery('sofa', this)">
-      🛋 Sofas <span class="filter-count" id="count-sofa">0</span>
-    </button>
-    <button class="filter-btn" data-cat="wardrobe" onclick="filterGallery('wardrobe', this)">
-      🚪 Wardrobes <span class="filter-count" id="count-wardrobe">0</span>
-    </button>
-    <button class="filter-btn" data-cat="dining" onclick="filterGallery('dining', this)">
-      🍽 Dining <span class="filter-count" id="count-dining">0</span>
-    </button>
-    <button class="filter-btn" data-cat="office" onclick="filterGallery('office', this)">
-      💼 Office <span class="filter-count" id="count-office">0</span>
-    </button>
-    <button class="filter-btn" data-cat="tv" onclick="filterGallery('tv', this)">
-      📺 TV Units <span class="filter-count" id="count-tv">0</span>
-    </button>
-    <button class="filter-btn" data-cat="study" onclick="filterGallery('study', this)">
-      📚 Study <span class="filter-count" id="count-study">0</span>
-    </button>
-    <button class="filter-btn" data-cat="custom" onclick="filterGallery('custom', this)">
-      ✨ Custom <span class="filter-count" id="count-custom">0</span>
-    </button>
+  <div class="filter-inner">
+    <button class="filter-btn active" onclick="filterGallery('all',this)">All <span class="filter-count" id="count-all">0</span></button>
+    <button class="filter-btn" onclick="filterGallery('bedroom',this)">🛏 Bedroom <span class="filter-count" id="count-bedroom">0</span></button>
+    <button class="filter-btn" onclick="filterGallery('sofa',this)">🛋 Sofas <span class="filter-count" id="count-sofa">0</span></button>
+    <button class="filter-btn" onclick="filterGallery('wardrobe',this)">🚪 Wardrobes <span class="filter-count" id="count-wardrobe">0</span></button>
+    <button class="filter-btn" onclick="filterGallery('dining',this)">🍽 Dining <span class="filter-count" id="count-dining">0</span></button>
+    <button class="filter-btn" onclick="filterGallery('office',this)">💼 Office <span class="filter-count" id="count-office">0</span></button>
+    <button class="filter-btn" onclick="filterGallery('tv',this)">📺 TV Units <span class="filter-count" id="count-tv">0</span></button>
+    <button class="filter-btn" onclick="filterGallery('study',this)">📚 Study <span class="filter-count" id="count-study">0</span></button>
+    <button class="filter-btn" onclick="filterGallery('custom',this)">✨ Custom <span class="filter-count" id="count-custom">0</span></button>
     <div class="search-wrap">
       <span>🔍</span>
       <input type="text" id="searchInput" placeholder="Search..." oninput="searchGallery()">
@@ -404,45 +125,27 @@ nav {
   </div>
 </div>
 
-<!-- ══ GALLERY MAIN ══ -->
 <main class="gallery-main">
   <div class="result-info">
     <span>Showing <strong id="visibleCount">0</strong> of <strong id="totalShown">0</strong> photos</span>
-    <span id="activeFilter" style="color:var(--gold);font-size:.75rem;letter-spacing:1px;text-transform:uppercase">All Categories</span>
+    <span id="activeFilterLabel" style="color:var(--gold);font-size:.75rem;letter-spacing:1px;text-transform:uppercase">All Categories</span>
   </div>
   <div class="masonry" id="masonryGrid"></div>
-  <div class="no-results" id="noResults">No photos found for this filter.</div>
+  <div class="no-results" id="noResults">No photos found.</div>
 </main>
 
-<!-- ══ LIGHTBOX ══ -->
-<div class="lightbox" id="lightbox" onclick="closeLightboxBg(event)">
-  <div class="lb-inner">
-    <button class="lb-close" onclick="closeLightbox()">✕</button>
-    <img class="lb-img" id="lbImg" src="" alt="">
-    <div class="lb-caption">
-      <div class="lb-cat" id="lbCat"></div>
-      <div class="lb-title" id="lbTitle"></div>
-    </div>
-  </div>
-  <button class="lb-prev" onclick="lbNavigate(-1)">‹</button>
-  <button class="lb-next" onclick="lbNavigate(1)">›</button>
-  <div class="lb-counter" id="lbCounter"></div>
-</div>
-
-<!-- ══ CTA STRIP ══ -->
 <div class="cta-strip">
   <h2>Like What You See? <em>Let's Build Yours.</em></h2>
   <p>Every piece in this gallery was custom-made for a real home. Yours could be next — free quote in 24 hours.</p>
   <div class="strip-btns">
-    <a href="https://wa.me/919234734763?text=Hi%2C%20I%20saw%20your%20gallery%20and%20want%20a%20free%20quote" class="btn-wa">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <a href="https://wa.me/919234734763?text=Hi%20I%20saw%20your%20gallery%20and%20want%20a%20free%20quote" class="btn-wa">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       WhatsApp for Free Quote
     </a>
     <a href="tel:+919234734763" class="btn-call">📞 Call: +91 92347 34763</a>
   </div>
 </div>
 
-<!-- ══ FOOTER MINI ══ -->
 <div class="footer-mini">
   <div class="f-copy">© 2024 Pankaj Furniture, Jamshedpur. All rights reserved.</div>
   <div class="f-links-row">
@@ -454,168 +157,254 @@ nav {
 </div>
 
 <script>
-/* ─── THEME ─── */
-let isDark = false; // default light
+/* =========================================================
+   THEME
+========================================================= */
 function toggleTheme() {
-  isDark = !isDark;
-  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-  document.getElementById('themeBtn').textContent = isDark ? '☀️' : '🌙';
+  var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
+  document.getElementById('themeBtn').textContent = dark ? '🌙' : '☀️';
 }
 
-/* ─── GALLERY DATA ─── */
-const galleryData = [
-  // BEDROOM
-  { src: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80', title: 'King Platform Bed with Storage', cat: 'bedroom' },
-  { src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80', title: 'Modern Bedroom Set', cat: 'bedroom' },
-  { src: 'https://images.unsplash.com/photo-1560448075-bb485b067938?w=800&q=80', title: 'Walnut Finish Double Bed', cat: 'bedroom' },
-  { src: 'https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?w=800&q=80', title: 'Hydraulic Lift Storage Bed', cat: 'bedroom' },
-  { src: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80', title: 'Queen Bed with Side Tables', cat: 'bedroom' },
-  { src: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&q=80', title: 'Upholstered Panel Bed', cat: 'bedroom' },
-  // SOFA
-  { src: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80', title: 'L-Shaped Grey Sectional Sofa', cat: 'sofa' },
-  { src: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800&q=80', title: '3+2+1 Fabric Sofa Set', cat: 'sofa' },
-  { src: 'https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=800&q=80', title: 'Sectional with Chaise Lounge', cat: 'sofa' },
-  { src: 'https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=800&q=80', title: 'Leatherette 5-Seater Sofa', cat: 'sofa' },
-  { src: 'https://images.unsplash.com/photo-1585412727339-54e4bae3bbf9?w=800&q=80', title: 'Recliner 3-Seater Sofa', cat: 'sofa' },
-  // WARDROBE
-  { src: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800&q=80', title: '6-Door Sliding Wardrobe', cat: 'wardrobe' },
-  { src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', title: 'Walk-in Wardrobe with Mirror', cat: 'wardrobe' },
-  { src: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=800&q=80', title: 'Hinged 4-Door Almirah', cat: 'wardrobe' },
-  { src: 'https://images.unsplash.com/photo-1611269154421-4e27233ac5c7?w=800&q=80', title: 'White Gloss Wardrobe', cat: 'wardrobe' },
-  // DINING
-  { src: 'https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=800&q=80', title: '6-Seater Solid Wood Dining Set', cat: 'dining' },
-  { src: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80', title: '4-Seater Sheesham Dining Table', cat: 'dining' },
-  { src: 'https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?w=800&q=80', title: '8-Seater Family Dining Set', cat: 'dining' },
-  { src: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=800&q=80', title: 'Round Teak Dining Table', cat: 'dining' },
-  // OFFICE
-  { src: 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&q=80', title: 'Executive L-Desk Setup', cat: 'office' },
-  { src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80', title: 'Office Workstation for 6', cat: 'office' },
-  { src: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80', title: 'Conference Table – 12 Seater', cat: 'office' },
-  { src: 'https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=800&q=80', title: 'Reception Desk with Counter', cat: 'office' },
-  // TV UNITS
-  { src: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80', title: 'Wall-Mounted TV Unit', cat: 'tv' },
-  { src: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80', title: 'Full-Wall Entertainment Unit', cat: 'tv' },
-  { src: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800&q=80', title: 'Floating TV Console', cat: 'tv' },
-  // STUDY
-  { src: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=800&q=80', title: 'Kids Study Table with Bookshelf', cat: 'study' },
-  { src: 'https://images.unsplash.com/photo-1542621334-a254cf47733d?w=800&q=80', title: 'Wall-to-Wall Bookcase', cat: 'study' },
-  { src: 'https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?w=800&q=80', title: 'Corner Study Desk', cat: 'study' },
-  // CUSTOM
-  { src: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80', title: 'Custom Puja Mandir Unit', cat: 'custom' },
-  { src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', title: 'Modular Kitchen Cabinets', cat: 'custom' },
-  { src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80', title: 'Custom Kids Bunk Bed', cat: 'custom' },
-  { src: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80', title: 'Bay Window Seating', cat: 'custom' },
+/* =========================================================
+   DATA
+========================================================= */
+var URLS = [
+  "https://i.ibb.co/GvwRBX8N/1.jpg","https://i.ibb.co/PzmzfNFf/2.jpg","https://i.ibb.co/jvWCv05n/3.jpg","https://i.ibb.co/jv1N8bqG/4.jpg",
+  "https://i.ibb.co/HfVZyWrj/5.jpg","https://i.ibb.co/21QngwTP/6.jpg","https://i.ibb.co/SXKHpFCb/7.jpg","https://i.ibb.co/7LrnRfH/8.jpg",
+  "https://i.ibb.co/dsCjN62k/9.jpg","https://i.ibb.co/BVMN8jJv/10.jpg","https://i.ibb.co/WWQrM0RZ/11.jpg","https://i.ibb.co/5xFGn3kS/12.jpg",
+  "https://i.ibb.co/XrsqC6dM/13.jpg","https://i.ibb.co/4RdGqn1B/14.jpg","https://i.ibb.co/C3W5MH1P/15.jpg","https://i.ibb.co/H8nynNn/16.jpg",
+  "https://i.ibb.co/cS3SH1mM/17.jpg","https://i.ibb.co/67YW3N3W/18.jpg","https://i.ibb.co/d483KdZ3/19.jpg","https://i.ibb.co/Mx5bJFHn/20.jpg",
+  "https://i.ibb.co/cc3hLzB3/21.jpg","https://i.ibb.co/1YJz4Jp1/22.jpg","https://i.ibb.co/KpFT32TH/23.jpg","https://i.ibb.co/s9NV4G7m/24.jpg",
+  "https://i.ibb.co/RVfqs8D/25.jpg","https://i.ibb.co/nMQ8Y7fp/26.jpg","https://i.ibb.co/Xrwz2hBS/27.jpg","https://i.ibb.co/PkMdLsh/28.jpg",
+  "https://i.ibb.co/N6GM6rMM/29.jpg","https://i.ibb.co/XkKG3Kms/30.jpg","https://i.ibb.co/sdZN2ryW/31.jpg","https://i.ibb.co/QjYBFFWG/32.jpg",
+  "https://i.ibb.co/gMxX6VZd/33.jpg","https://i.ibb.co/fYNxC7W0/34.jpg","https://i.ibb.co/jvg8dHwx/35.jpg","https://i.ibb.co/kgQCSffH/36.jpg",
+  "https://i.ibb.co/Pz94TTQC/37.jpg","https://i.ibb.co/N2C1xvVK/38.jpg","https://i.ibb.co/LXgyt7bv/39.jpg","https://i.ibb.co/jvpn6jR5/40.jpg",
+  "https://i.ibb.co/LXv9Yc2W/41.jpg","https://i.ibb.co/8g8nCp9S/42.jpg",
+  "https://i.ibb.co/sJdqh2LB/1.jpg","https://i.ibb.co/Lz6YgZY6/2.jpg","https://i.ibb.co/5xBmZ99m/3.jpg","https://i.ibb.co/0jc5Vfmp/4.jpg",
+  "https://i.ibb.co/mrBgyMTj/5.jpg","https://i.ibb.co/VWcWNWTt/6.jpg","https://i.ibb.co/DH7DmzXF/7.jpg","https://i.ibb.co/jPvwfCYs/8.jpg",
+  "https://i.ibb.co/xtfwWyRF/1.jpg","https://i.ibb.co/4nP4Y6ch/2.jpg","https://i.ibb.co/zVH15fM0/3.jpg","https://i.ibb.co/XfWvmTrc/4.jpg",
+  "https://i.ibb.co/ynCqfGjN/5.jpg","https://i.ibb.co/Y4Tf9TyP/6.jpg","https://i.ibb.co/WW25k8DP/7.jpg"
 ];
 
-/* ─── BUILD GRID ─── */
-const grid = document.getElementById('masonryGrid');
-let currentCat = 'all';
-let currentSearch = '';
-let visibleItems = [];
-let currentLbIndex = 0;
+var CATS   = ['bedroom','sofa','wardrobe','dining','office','tv','study','custom'];
+var TITLES = {bedroom:'Luxury Bedroom Set',sofa:'Elegant Sofa',wardrobe:'Modern Wardrobe',dining:'Premium Dining Set',office:'Executive Office Desk',tv:'Sleek TV Unit',study:'Study Desk & Shelves',custom:'Custom Crafted Piece'};
+var LABELS = {bedroom:'Bedroom',sofa:'Sofa',wardrobe:'Wardrobe',dining:'Dining',office:'Office',tv:'TV Unit',study:'Study',custom:'Custom'};
 
-function buildGrid() {
-  const counts = { all: galleryData.length };
-  galleryData.forEach(item => { counts[item.cat] = (counts[item.cat] || 0) + 1; });
-  Object.entries(counts).forEach(([cat, n]) => {
-    const el = document.getElementById('count-' + cat);
-    if (el) el.textContent = n;
-  });
-  document.getElementById('totalCount').textContent = galleryData.length + '+';
-  applyFilter();
-}
+var allItems = URLS.map(function(src, i) {
+  var cat = CATS[i % CATS.length];
+  return { src: src, cat: cat, title: TITLES[cat] + ' ' + (Math.floor(i / CATS.length) + 1) };
+});
 
-function applyFilter() {
-  const search = currentSearch.toLowerCase();
-  visibleItems = galleryData.filter(item => {
-    const matchCat = currentCat === 'all' || item.cat === currentCat;
-    const matchSearch = !search || item.title.toLowerCase().includes(search) || item.cat.toLowerCase().includes(search);
-    return matchCat && matchSearch;
-  });
-  grid.innerHTML = '';
-  visibleItems.forEach((item, i) => {
-    const el = document.createElement('div');
-    el.className = 'masonry-item';
-    el.innerHTML = `
-      <img src="${item.src}" alt="${item.title}" loading="lazy">
-      <div class="item-overlay">
-        <div class="item-tag">${catLabel(item.cat)}</div>
-        <div class="item-title">${item.title}</div>
-      </div>
-      <div class="item-expand">⊕</div>
-    `;
-    el.addEventListener('click', () => openLightbox(i));
-    grid.appendChild(el);
-    requestAnimationFrame(() => {
-      setTimeout(() => el.classList.add('visible'), i * 40);
+var visibleItems  = [];
+var activeFilter  = 'all';
+var activeSearch  = '';
+var lbIndex       = 0;
+
+/* =========================================================
+   LIGHTBOX  — 100% JavaScript, zero CSS dependency
+   Uses the maximum possible z-index (2147483647)
+   and inline styles so nothing can override it.
+========================================================= */
+var LB = (function() {
+  var overlay, img, catEl, titleEl, countEl;
+
+  function make(tag, css, text) {
+    var el = document.createElement(tag);
+    el.style.cssText = css;
+    if (text) el.textContent = text;
+    return el;
+  }
+
+  function build() {
+    /* --- backdrop --- */
+    overlay = make('div',
+      'display:none;' +
+      'position:fixed;top:0;left:0;width:100%;height:100%;' +
+      'background:rgba(8,4,1,0.95);' +
+      'z-index:2147483647;' +
+      'align-items:center;justify-content:center;flex-direction:column;gap:12px;'
+    );
+
+    /* click backdrop → close */
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) close();
     });
+
+    /* --- image --- */
+    img = make('img',
+      'max-width:88vw;max-height:74vh;' +
+      'border-radius:10px;object-fit:contain;display:block;' +
+      'box-shadow:0 24px 60px rgba(0,0,0,.7);pointer-events:none;'
+    );
+    overlay.appendChild(img);
+
+    /* --- caption --- */
+    var cap = make('div', 'text-align:center;');
+    catEl   = make('div', 'font-size:.68rem;letter-spacing:2px;color:#C8922A;text-transform:uppercase;margin-bottom:4px;font-family:DM Sans,sans-serif;');
+    titleEl = make('div', 'font-size:1.25rem;color:#F7F3EE;font-family:Cormorant Garamond,serif;');
+    cap.appendChild(catEl);
+    cap.appendChild(titleEl);
+    overlay.appendChild(cap);
+
+    /* --- close button --- */
+    var closeBtn = make('button',
+      'position:absolute;top:16px;right:16px;' +
+      'width:40px;height:40px;border-radius:50%;' +
+      'background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);' +
+      'color:#fff;font-size:1.1rem;cursor:pointer;line-height:1;', '✕'
+    );
+    closeBtn.onclick = close;
+    overlay.appendChild(closeBtn);
+
+    /* --- prev --- */
+    var prevBtn = make('button',
+      'position:absolute;left:14px;top:50%;transform:translateY(-50%);' +
+      'width:46px;height:46px;border-radius:50%;' +
+      'background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);' +
+      'color:#fff;font-size:2rem;cursor:pointer;line-height:1;', '‹'
+    );
+    prevBtn.onclick = function() { go(-1); };
+    overlay.appendChild(prevBtn);
+
+    /* --- next --- */
+    var nextBtn = make('button',
+      'position:absolute;right:14px;top:50%;transform:translateY(-50%);' +
+      'width:46px;height:46px;border-radius:50%;' +
+      'background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);' +
+      'color:#fff;font-size:2rem;cursor:pointer;line-height:1;', '›'
+    );
+    nextBtn.onclick = function() { go(1); };
+    overlay.appendChild(nextBtn);
+
+    /* --- counter --- */
+    countEl = make('div',
+      'position:absolute;bottom:16px;left:50%;transform:translateX(-50%);' +
+      'font-size:.75rem;color:rgba(255,255,255,.6);' +
+      'background:rgba(0,0,0,.5);padding:3px 14px;border-radius:30px;' +
+      'font-family:DM Sans,sans-serif;letter-spacing:1px;white-space:nowrap;'
+    );
+    overlay.appendChild(countEl);
+
+    document.body.appendChild(overlay);
+  }
+
+  function refresh() {
+    var item = visibleItems[lbIndex];
+    img.src           = item.src;
+    img.alt           = item.title;
+    catEl.textContent = LABELS[item.cat] || item.cat;
+    titleEl.textContent = item.title;
+    countEl.textContent = (lbIndex + 1) + ' / ' + visibleItems.length;
+  }
+
+  function open(idx) {
+    lbIndex = idx;
+    refresh();
+    overlay.style.display = 'flex';      /* ← THE key line */
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  function go(dir) {
+    lbIndex = (lbIndex + dir + visibleItems.length) % visibleItems.length;
+    refresh();
+  }
+
+  function isOpen() { return overlay && overlay.style.display !== 'none'; }
+
+  /* keyboard */
+  document.addEventListener('keydown', function(e) {
+    if (!isOpen()) return;
+    if (e.key === 'ArrowLeft')  go(-1);
+    if (e.key === 'ArrowRight') go(1);
+    if (e.key === 'Escape')     close();
   });
-  document.getElementById('visibleCount').textContent = visibleItems.length;
-  document.getElementById('totalShown').textContent = galleryData.length;
-  document.getElementById('activeFilter').textContent = currentCat === 'all' ? 'All Categories' : catLabel(currentCat);
+
+  build();   /* create DOM immediately */
+
+  return { open: open, close: close };
+})();
+
+/* =========================================================
+   GALLERY
+========================================================= */
+function renderGallery() {
+  var q = activeSearch.toLowerCase();
+  visibleItems = allItems.filter(function(item) {
+    var catOk  = (activeFilter === 'all') || (item.cat === activeFilter);
+    var srchOk = !q || item.title.toLowerCase().indexOf(q) !== -1 || item.cat.indexOf(q) !== -1;
+    return catOk && srchOk;
+  });
+
+  var grid = document.getElementById('masonryGrid');
+  grid.innerHTML = '';
+
+  visibleItems.forEach(function(item, idx) {
+    var card    = document.createElement('div');
+    card.className = 'masonry-item';
+
+    var img     = document.createElement('img');
+    img.src     = item.src;
+    img.alt     = item.title;
+    img.loading = 'lazy';
+
+    var overlay = document.createElement('div');
+    overlay.className = 'item-overlay';
+    overlay.innerHTML =
+      '<div class="item-tag">' + (LABELS[item.cat] || item.cat) + '</div>' +
+      '<div class="item-name">' + item.title + '</div>';
+
+    card.appendChild(img);
+    card.appendChild(overlay);
+
+    /* capture idx in closure */
+    (function(i) {
+      card.addEventListener('click', function() {
+        LB.open(i);
+      });
+    })(idx);
+
+    grid.appendChild(card);
+  });
+
+  document.getElementById('visibleCount').textContent    = visibleItems.length;
+  document.getElementById('totalShown').textContent      = allItems.length;
+  document.getElementById('activeFilterLabel').textContent =
+    activeFilter === 'all' ? 'All Categories' : (LABELS[activeFilter] || activeFilter);
   document.getElementById('noResults').classList.toggle('show', visibleItems.length === 0);
 }
 
-function catLabel(cat) {
-  const map = { bedroom:'Bedroom', sofa:'Sofa', wardrobe:'Wardrobe', dining:'Dining', office:'Office', tv:'TV Unit', study:'Study', custom:'Custom' };
-  return map[cat] || cat;
+function updateCounts() {
+  var counts = { all: allItems.length };
+  allItems.forEach(function(item) {
+    counts[item.cat] = (counts[item.cat] || 0) + 1;
+  });
+  Object.keys(counts).forEach(function(cat) {
+    var el = document.getElementById('count-' + cat);
+    if (el) el.textContent = counts[cat];
+  });
 }
 
 function filterGallery(cat, btn) {
-  currentCat = cat;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  activeFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
   btn.classList.add('active');
-  applyFilter();
+  renderGallery();
 }
 
 function searchGallery() {
-  currentSearch = document.getElementById('searchInput').value;
-  applyFilter();
+  activeSearch = document.getElementById('searchInput').value;
+  renderGallery();
 }
 
-/* ─── LIGHTBOX ─── */
-function openLightbox(index) {
-  currentLbIndex = index;
-  updateLightboxContent();
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function updateLightboxContent() {
-  const item = visibleItems[currentLbIndex];
-  const img = document.getElementById('lbImg');
-  img.style.opacity = '0';
-  img.style.transform = 'scale(0.9)';
-  img.src = item.src;
-  img.alt = item.title;
-  document.getElementById('lbCat').textContent = catLabel(item.cat);
-  document.getElementById('lbTitle').textContent = item.title;
-  document.getElementById('lbCounter').textContent = `${currentLbIndex + 1} / ${visibleItems.length}`;
-  setTimeout(() => { img.style.opacity = '1'; img.style.transform = 'scale(1)'; }, 50);
-}
-
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function closeLightboxBg(e) {
-  if (e.target === e.currentTarget) closeLightbox();
-}
-
-function lbNavigate(dir) {
-  currentLbIndex = (currentLbIndex + dir + visibleItems.length) % visibleItems.length;
-  updateLightboxContent();
-}
-
-document.addEventListener('keydown', e => {
-  if (!document.getElementById('lightbox').classList.contains('open')) return;
-  if (e.key === 'ArrowRight') lbNavigate(1);
-  if (e.key === 'ArrowLeft')  lbNavigate(-1);
-  if (e.key === 'Escape')     closeLightbox();
-});
-
-buildGrid();
+/* ---- init ---- */
+updateCounts();
+renderGallery();
 </script>
 </body>
 </html>
