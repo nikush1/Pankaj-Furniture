@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Pankaj Furniture | Premium Custom Furniture – Jamshedpur</title>
 <meta name="description" content="Pankaj Furniture – Jamshedpur's finest custom furniture manufacturer. Beds, Sofas, Wardrobes, Office Furniture. Crafted with love, built to last.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -126,7 +126,6 @@ nav.scrolled .nav-logo { color:var(--nav-text); }
 }
 .nav-center a:hover::after { transform:scaleX(1); }
 
-/* Gallery link special treatment */
 .nav-gallery-link {
   cursor: pointer;
 }
@@ -568,7 +567,17 @@ footer { background:var(--charcoal); padding:60px 5% 28px; }
   .hamburger { display:flex; }
   .hero-title { font-size:2.6rem; }
   .about-grid,.products-grid,.reviews-grid,.form-grid,.contact-grid { grid-template-columns:1fr; }
-  .about-accent { display:none; }
+  /* 🔧 FIX: accent image now shows on mobile but with adjusted size/position to avoid overlap */
+  .about-accent {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    width: 48%;
+    margin-top: -40px;
+    margin-left: auto;
+    margin-right: 0;
+    display: block;
+  }
   .cta-box { grid-template-columns:1fr; padding:44px 28px; gap:28px; }
   .process-steps { grid-template-columns:1fr 1fr; }
   .process-steps::before { display:none; }
@@ -603,7 +612,6 @@ footer { background:var(--charcoal); padding:60px 5% 28px; }
 <div class="toast" id="toast">✓ &nbsp;Request sent! We'll call you soon.</div>
 
 <!-- FLOATERS -->
-<!-- WhatsApp SVG logo float button -->
 <a href="https://wa.me/919234734763?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20custom%20furniture" class="float-wa" title="WhatsApp">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -621,7 +629,7 @@ footer { background:var(--charcoal); padding:60px 5% 28px; }
   <a href="tel:+919234734763" style="color:var(--gold)">📞 Call Now</a>
 </div>
 
-<!-- ══ NAV ══ -->
+<!-- NAV -->
 <nav id="mainNav">
   <a href="#home" class="nav-logo">Pankaj Furniture</a>
   <ul class="nav-center">
@@ -640,41 +648,29 @@ footer { background:var(--charcoal); padding:60px 5% 28px; }
   </div>
 </nav>
 
-<!-- ══ HERO with 3-image slideshow ══ -->
+<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-slides">
     <div class="hero-slide active"></div>
     <div class="hero-slide"></div>
     <div class="hero-slide"></div>
   </div>
-
   <div class="hero-overlay"></div>
-
   <div class="hero-content">
     <div class="hero-eyebrow">Made in Jamshedpur</div>
-    <h1 class="hero-title">
-      We Don't Just Build Furniture,<br>
-      <em>We Craft Experiences</em>
-    </h1>
-    <p class="hero-desc">
-      High-quality craftsmanship meets affordable luxury. Custom designs tailored to your vision, delivered to your door.
-    </p>
+    <h1 class="hero-title">We Don't Just Build Furniture,<br><em>We Craft Experiences</em></h1>
+    <p class="hero-desc">High-quality craftsmanship meets affordable luxury. Custom designs tailored to your vision, delivered to your door.</p>
     <div class="hero-actions">
       <a href="#products" class="btn-primary">Explore Collection →</a>
       <a href="tel:+919234734763" class="btn-outline">📞 Call Now</a>
     </div>
   </div>
-
   <div class="hero-dots">
     <button class="hero-dot active" onclick="goToSlide(0)"></button>
     <button class="hero-dot" onclick="goToSlide(1)"></button>
     <button class="hero-dot" onclick="goToSlide(2)"></button>
   </div>
-
-  <div class="scroll-hint">
-    <div class="scroll-arrow"></div>
-    Scroll
-  </div>
+  <div class="scroll-hint"><div class="scroll-arrow"></div>Scroll</div>
 </section>
 
 <!-- MARQUEE -->
@@ -699,177 +695,69 @@ footer { background:var(--charcoal); padding:60px 5% 28px; }
   </div>
 </div>
 
-<!-- ══ ABOUT ══ -->
+<!-- ABOUT -->
 <section class="section about-section" id="about">
   <div class="section-inner">
     <div class="about-grid">
       <div class="about-vis reveal">
         <img class="about-main" src="https://i.ibb.co/pjytVfNZ/Gemini-Generated-Image-bxi20ebxi20ebxi2-1.png" alt="Craftsman at work">
         <img class="about-accent" src="https://i.ibb.co/7dZ20dQK/Colorful-Graffiti-Circle-Framed-Instagram-Profile-Picture-6.jpg" alt="Wood detail">
-        <div class="since-badge">
-          <div class="since-num">1999</div>
-          <div class="since-lbl">Est.</div>
-        </div>
+        <div class="since-badge"><div class="since-num">1999</div><div class="since-lbl">Est.</div></div>
       </div>
       <div class="reveal d2">
         <div class="eyebrow-row"><div class="bar"></div><span>Our Story</span></div>
         <h2 class="section-h2">Built on<br><em>Generations of Craft</em></h2>
         <blockquote class="about-quote">"We don't just make furniture — we build heirlooms that outlast trends."</blockquote>
-        <p class="about-body">Pankaj Furniture was born in the heart of Jamshedpur from a simple belief: every family deserves furniture that is both beautiful and built to last. For over 26 years, our master craftsmen have handcrafted pieces for thousands of homes across Jharkhand.</p>
+        <p class="about-body">Pankaj Furniture was born in the heart of Jamshedpur from a simple belief: every family deserves furniture that is both beautiful and built to last. For over 15 years, our master craftsmen have handcrafted pieces for thousands of homes across Jharkhand.</p>
         <p class="about-body">We use premium-grade timber, quality hardware, and traditional joinery techniques combined with modern design sensibilities. When you order from us, you're commissioning a piece made specifically for your space.</p>
-        <div class="val-grid">
-          <div class="val-chip">🪵 Premium Wood</div>
-          <div class="val-chip">✋ Handcrafted</div>
-          <div class="val-chip">📐 Custom Sizes</div>
-          <div class="val-chip">🚚 Free Delivery</div>
-          <div class="val-chip">💰 Best Prices</div>
-          <div class="val-chip">🔧 2-Year Warranty</div>
-        </div>
+        <div class="val-grid"><div class="val-chip">🪵 Premium Wood</div><div class="val-chip">✋ Handcrafted</div><div class="val-chip">📐 Custom Sizes</div><div class="val-chip">🚚 Free Delivery</div><div class="val-chip">💰 Best Prices</div><div class="val-chip">🔧 2-Year Warranty</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ PRODUCTS ══ -->
+<!-- PRODUCTS -->
 <section class="section products-section" id="products">
   <div class="section-inner">
-    <div class="reveal" style="margin-bottom:56px">
-      <div class="eyebrow-row"><div class="bar"></div><span>Collections</span></div>
-      <h2 class="section-h2">Furniture for <em>Every Room</em></h2>
-      <p class="section-body">From bedroom sanctuaries to productive workspaces, we craft furniture that fits your life perfectly.</p>
-    </div>
+    <div class="reveal" style="margin-bottom:56px"><div class="eyebrow-row"><div class="bar"></div><span>Collections</span></div><h2 class="section-h2">Furniture for <em>Every Room</em></h2><p class="section-body">From bedroom sanctuaries to productive workspaces, we craft furniture that fits your life perfectly.</p></div>
     <div class="products-grid">
-      <div class="prod-card reveal">
-        <img class="prod-img" src="https://i.ibb.co/23ZL9tRy/3.jpg" alt="Luxury Beds">
-        <div class="prod-info">
-          <div class="prod-cat">Bedroom</div>
-          <div class="prod-name">Luxury Beds</div>
-          <div class="prod-desc">Custom platform beds, king/queen sizes, storage beds with hydraulic lift. All wood types available.</div>
-          <div class="prod-arrow">→</div>
-        </div>
-      </div>
-      <div class="prod-card reveal d1">
-        <img class="prod-img" src="https://i.ibb.co/HDDDMV4k/34.jpg" alt="Designer Sofas">
-        <div class="prod-info">
-          <div class="prod-cat">Living Room</div>
-          <div class="prod-name">Designer Sofas</div>
-          <div class="prod-desc">L-shaped, sectional, 3+2+1 sets. Premium fabric or leatherette in 50+ colours.</div>
-          <div class="prod-arrow">→</div>
-        </div>
-      </div>
-      <div class="prod-card reveal d2">
-        <img class="prod-img" src="https://i.ibb.co/DfZwxSpz/19.jpg" alt="Wardrobes">
-        <div class="prod-info">
-          <div class="prod-cat">Storage</div>
-          <div class="prod-name">Wardrobes</div>
-          <div class="prod-desc">Sliding, hinged, walk-in. Fitted mirrors, soft-close drawers, custom internals.</div>
-          <div class="prod-arrow">→</div>
-        </div>
-      </div>
-      <div class="prod-card reveal d1">
-        <img class="prod-img" src="https://i.ibb.co/Cs68MzpD/36.jpg" alt="Office Furniture">
-        <div class="prod-info">
-          <div class="prod-cat">Workspace</div>
-          <div class="prod-name">Office Furniture</div>
-          <div class="prod-desc">Executive desks, conference tables, ergonomic cabinets, entire office fit-outs.</div>
-          <div class="prod-arrow">→</div>
-        </div>
-      </div>
-      <div class="prod-card reveal d2">
-        <img class="prod-img" src="https://i.ibb.co/CsV64Kpq/42.jpg" alt="Dining Sets">
-        <div class="prod-info">
-          <div class="prod-cat">Dining</div>
-          <div class="prod-name">Dining Sets</div>
-          <div class="prod-desc">4, 6, 8 seater tables with matching chairs. Solid teak, sheesham, or engineered wood.</div>
-          <div class="prod-arrow">→</div>
-        </div>
-      </div>
-      <div class="prod-card reveal d3">
-        <img class="prod-img" src="https://i.ibb.co/BVG3hNRr/32.jpg" alt="Custom Orders">
-        <div class="prod-info">
-          <div class="prod-cat">Special</div>
-          <div class="prod-name">Custom Orders</div>
-          <div class="prod-desc">Have a design in mind? Share a photo, sketch, or idea — we'll build it exactly as you envision.</div>
-          <div class="prod-arrow">→</div>
-        </div>
-      </div>
+      <div class="prod-card reveal"><img class="prod-img" src="https://i.ibb.co/23ZL9tRy/3.jpg" alt="Luxury Beds"><div class="prod-info"><div class="prod-cat">Bedroom</div><div class="prod-name">Luxury Beds</div><div class="prod-desc">Custom platform beds, king/queen sizes, storage beds with hydraulic lift. All wood types available.</div><div class="prod-arrow">→</div></div></div>
+      <div class="prod-card reveal d1"><img class="prod-img" src="https://i.ibb.co/HDDDMV4k/34.jpg" alt="Designer Sofas"><div class="prod-info"><div class="prod-cat">Living Room</div><div class="prod-name">Designer Sofas</div><div class="prod-desc">L-shaped, sectional, 3+2+1 sets. Premium fabric or leatherette in 50+ colours.</div><div class="prod-arrow">→</div></div></div>
+      <div class="prod-card reveal d2"><img class="prod-img" src="https://i.ibb.co/DfZwxSpz/19.jpg" alt="Wardrobes"><div class="prod-info"><div class="prod-cat">Storage</div><div class="prod-name">Wardrobes</div><div class="prod-desc">Sliding, hinged, walk-in. Fitted mirrors, soft-close drawers, custom internals.</div><div class="prod-arrow">→</div></div></div>
+      <div class="prod-card reveal d1"><img class="prod-img" src="https://i.ibb.co/Cs68MzpD/36.jpg" alt="Office Furniture"><div class="prod-info"><div class="prod-cat">Workspace</div><div class="prod-name">Office Furniture</div><div class="prod-desc">Executive desks, conference tables, ergonomic cabinets, entire office fit-outs.</div><div class="prod-arrow">→</div></div></div>
+      <div class="prod-card reveal d2"><img class="prod-img" src="https://i.ibb.co/CsV64Kpq/42.jpg" alt="Dining Sets"><div class="prod-info"><div class="prod-cat">Dining</div><div class="prod-name">Dining Sets</div><div class="prod-desc">4, 6, 8 seater tables with matching chairs. Solid teak, sheesham, or engineered wood.</div><div class="prod-arrow">→</div></div></div>
+      <div class="prod-card reveal d3"><img class="prod-img" src="https://i.ibb.co/BVG3hNRr/32.jpg" alt="Custom Orders"><div class="prod-info"><div class="prod-cat">Special</div><div class="prod-name">Custom Orders</div><div class="prod-desc">Have a design in mind? Share a photo, sketch, or idea — we'll build it exactly as you envision.</div><div class="prod-arrow">→</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ══ WHY US ══ -->
+<!-- WHY US -->
 <section class="section why-section" id="why">
-  <div class="section-inner">
-    <div class="reveal" style="margin-bottom:0">
-      <div class="eyebrow-row"><div class="bar"></div><span>Why Choose Us</span></div>
-      <h2 class="section-h2" style="color:var(--cream)">What Makes Us <em style="color:var(--gold)">Different</em></h2>
-    </div>
+  <div class="section-inner"><div class="reveal"><div class="eyebrow-row"><div class="bar"></div><span>Why Choose Us</span></div><h2 class="section-h2" style="color:var(--cream)">What Makes Us <em style="color:var(--gold)">Different</em></h2></div>
     <div class="why-grid">
-      <div class="why-card reveal">
-        <div class="why-icon">🏆</div>
-        <div class="why-title">15+ Years of Mastery</div>
-        <div class="why-desc">Over a decade of hands-on craftsmanship means every joint, finish, and detail is executed with complete precision.</div>
-      </div>
-      <div class="why-card reveal d1">
-        <div class="why-icon">📐</div>
-        <div class="why-title">100% Custom-Made</div>
-        <div class="why-desc">Nothing off the shelf. Every piece is designed to your exact dimensions, finish, colour, and style preferences.</div>
-      </div>
-      <div class="why-card reveal d2">
-        <div class="why-icon">💰</div>
-        <div class="why-title">Factory-Direct Prices</div>
-        <div class="why-desc">We manufacture in-house, cutting out middlemen. Showroom quality at manufacturer prices.</div>
-      </div>
-      <div class="why-card reveal d3">
-        <div class="why-icon">🛡️</div>
-        <div class="why-title">2-Year Warranty</div>
-        <div class="why-desc">Comprehensive warranty on structure and hardware, backed by real after-sales support.</div>
-      </div>
+      <div class="why-card reveal"><div class="why-icon">🏆</div><div class="why-title">15+ Years of Mastery</div><div class="why-desc">Over a decade of hands-on craftsmanship means every joint, finish, and detail is executed with complete precision.</div></div>
+      <div class="why-card reveal d1"><div class="why-icon">📐</div><div class="why-title">100% Custom-Made</div><div class="why-desc">Nothing off the shelf. Every piece is designed to your exact dimensions, finish, colour, and style preferences.</div></div>
+      <div class="why-card reveal d2"><div class="why-icon">💰</div><div class="why-title">Factory-Direct Prices</div><div class="why-desc">We manufacture in-house, cutting out middlemen. Showroom quality at manufacturer prices.</div></div>
+      <div class="why-card reveal d3"><div class="why-icon">🛡️</div><div class="why-title">2-Year Warranty</div><div class="why-desc">Comprehensive warranty on structure and hardware, backed by real after-sales support.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ══ PROCESS ══ -->
+<!-- PROCESS -->
 <section class="section process-section" id="process">
-  <div class="section-inner">
-    <div class="reveal" style="text-align:center;margin-bottom:0">
-      <div class="eyebrow-row" style="justify-content:center"><div class="bar"></div><span>Our Process</span><div class="bar"></div></div>
-      <h2 class="section-h2">From <em>Vision</em> to Reality</h2>
-      <p class="section-body" style="text-align:center;margin:12px auto 0">Just 4 steps to your dream piece.</p>
-    </div>
+  <div class="section-inner"><div class="reveal" style="text-align:center"><div class="eyebrow-row" style="justify-content:center"><div class="bar"></div><span>Our Process</span><div class="bar"></div></div><h2 class="section-h2">From <em>Vision</em> to Reality</h2><p class="section-body" style="text-align:center;margin:12px auto 0">Just 4 steps to your dream piece.</p></div>
     <div class="process-steps">
-      <div class="step reveal">
-        <div class="step-num">01</div>
-        <div class="step-title">Share Your Vision</div>
-        <div class="step-desc">Call, WhatsApp, or visit. Share dimensions, design, or just an inspiration image.</div>
-      </div>
-      <div class="step reveal d1">
-        <div class="step-num">02</div>
-        <div class="step-title">Get a Free Quote</div>
-        <div class="step-desc">We'll design it, suggest best materials, and give a transparent price estimate.</div>
-      </div>
-      <div class="step reveal d2">
-        <div class="step-num">03</div>
-        <div class="step-title">We Craft It</div>
-        <div class="step-desc">Our master craftsmen build your piece to spec with regular photo updates.</div>
-      </div>
-      <div class="step reveal d3">
-        <div class="step-num">04</div>
-        <div class="step-title">Free Delivery & Setup</div>
-        <div class="step-desc">We deliver and set it up. Pay only when you're 100% satisfied.</div>
-      </div>
+      <div class="step reveal"><div class="step-num">01</div><div class="step-title">Share Your Vision</div><div class="step-desc">Call, WhatsApp, or visit. Share dimensions, design, or just an inspiration image.</div></div>
+      <div class="step reveal d1"><div class="step-num">02</div><div class="step-title">Get a Free Quote</div><div class="step-desc">We'll design it, suggest best materials, and give a transparent price estimate.</div></div>
+      <div class="step reveal d2"><div class="step-num">03</div><div class="step-title">We Craft It</div><div class="step-desc">Our master craftsmen build your piece to spec with regular photo updates.</div></div>
+      <div class="step reveal d3"><div class="step-num">04</div><div class="step-title">Free Delivery & Setup</div><div class="step-desc">We deliver and set it up. Pay only when you're 100% satisfied.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ══ GALLERY PREVIEW ══ -->
+<!-- GALLERY PREVIEW -->
 <section class="section gallery-section" id="gallery">
-  <div class="section-inner">
-    <div class="reveal" style="margin-bottom:0">
-      <div class="eyebrow-row"><div class="bar"></div><span>Our Work</span></div>
-      <h2 class="section-h2">Pieces We're <em>Proud Of</em></h2>
-      <p class="section-body">A glimpse into our craftsmanship — real furniture for real homes.</p>
-    </div>
+  <div class="section-inner"><div class="reveal"><div class="eyebrow-row"><div class="bar"></div><span>Our Work</span></div><h2 class="section-h2">Pieces We're <em>Proud Of</em></h2><p class="section-body">A glimpse into our craftsmanship — real furniture for real homes.</p></div>
     <div class="gallery-grid">
       <div class="g-item reveal"><img src="https://i.ibb.co/Fq4Jx087/6.jpg" alt="Living room"></div>
       <div class="g-item reveal d1"><img src="https://i.ibb.co/TxTzmqW6/5.jpg" alt="Bedroom"></div>
@@ -880,290 +768,83 @@ footer { background:var(--charcoal); padding:60px 5% 28px; }
       <div class="g-item reveal d1"><img src="https://i.ibb.co/BVMN8jJv/10.jpg" alt="TV unit"></div>
       <div class="g-item reveal d2"><img src="https://i.ibb.co/jvpn6jR5/40.jpg" alt="Wood detail"></div>
     </div>
-    <div class="gallery-footer reveal">
-      <button class="btn-gallery-more" onclick="goToGallery(event, 'gallery.html')">
-        View Full Gallery — 100+ Photos
-        <span class="arrow">→</span>
-      </button>
-    </div>
+    <div class="gallery-footer reveal"><button class="btn-gallery-more" onclick="goToGallery(event, 'gallery.html')">View Full Gallery — 100+ Photos<span class="arrow">→</span></button></div>
   </div>
 </section>
 
-<!-- ══ REVIEWS ══ -->
+<!-- REVIEWS -->
 <section class="reviews-section" id="reviews">
-  <div class="section-inner" style="max-width:1200px;margin:0 auto">
-    <div class="reveal" style="text-align:center">
-      <div class="eyebrow-row" style="justify-content:center"><div class="bar"></div><span>Testimonials</span><div class="bar"></div></div>
-      <h2 class="section-h2" style="color:var(--cream)">Words from Our <em style="color:var(--gold-lt)">Happy Families</em></h2>
-    </div>
+  <div class="section-inner"><div class="reveal" style="text-align:center"><div class="eyebrow-row" style="justify-content:center"><div class="bar"></div><span>Testimonials</span><div class="bar"></div></div><h2 class="section-h2" style="color:var(--cream)">Words from Our <em style="color:var(--gold-lt)">Happy Families</em></h2></div>
     <div class="reviews-grid">
-      <div class="rev-card reveal">
-        <div class="rev-stars">★★★★★</div>
-        <p class="rev-text">"Got my entire bedroom set done — king bed with storage, wardrobe, and dressing table. The quality is outstanding. Better than any showroom furniture at half the price!"</p>
-        <div class="rev-author"><div class="rev-avatar">R</div><div><div class="rev-name">Rajesh Kumar</div><div class="rev-loc">Sonari, Jamshedpur</div></div></div>
-      </div>
-      <div class="rev-card reveal d1">
-        <div class="rev-stars">★★★★★</div>
-        <p class="rev-text">"They made a custom L-shaped sofa exactly to my room's odd dimensions. The fabric quality, the stitching, everything is perfect. On-time delivery too. Highly recommended!"</p>
-        <div class="rev-author"><div class="rev-avatar">P</div><div><div class="rev-name">Priya Sharma</div><div class="rev-loc">Adityapur, Jamshedpur</div></div></div>
-      </div>
-      <div class="rev-card reveal d2">
-        <div class="rev-stars">★★★★★</div>
-        <p class="rev-text">"Office fit-out for 20 workstations done in just 3 weeks. Professional team, clean finish, sturdy desks. Everyone in our office compliments the furniture. Will order again!"</p>
-        <div class="rev-author"><div class="rev-avatar">A</div><div><div class="rev-name">Amit Singh</div><div class="rev-loc">Bistupur, Jamshedpur</div></div></div>
-      </div>
-      <div class="rev-card reveal">
-        <div class="rev-stars">★★★★★</div>
-        <p class="rev-text">"Ordered a custom study table and bookshelf combo for my kids. The finish is smooth, drawers slide perfectly, and it's super sturdy. My kids absolutely love it!"</p>
-        <div class="rev-author"><div class="rev-avatar">S</div><div><div class="rev-name">Sunita Mehta</div><div class="rev-loc">Sakchi, Jamshedpur</div></div></div>
-      </div>
-      <div class="rev-card reveal d1">
-        <div class="rev-stars">★★★★★</div>
-        <p class="rev-text">"Very honest pricing, no hidden charges. They showed material samples, explained everything, and delivered exactly what was promised. The dining table looks amazing!"</p>
-        <div class="rev-author"><div class="rev-avatar">M</div><div><div class="rev-name">Mohan Gupta</div><div class="rev-loc">Telco Colony, Jamshedpur</div></div></div>
-      </div>
-      <div class="rev-card reveal d2">
-        <div class="rev-stars">★★★★★</div>
-        <p class="rev-text">"Pankaj bhai is very helpful and patient. Took time to understand what I wanted, suggested better alternatives, and the final wardrobe turned out far better than I imagined!"</p>
-        <div class="rev-author"><div class="rev-avatar">D</div><div><div class="rev-name">Deepa Verma</div><div class="rev-loc">Mango, Jamshedpur</div></div></div>
-      </div>
+      <div class="rev-card reveal"><div class="rev-stars">★★★★★</div><p class="rev-text">"Got my entire bedroom set done — king bed with storage, wardrobe, and dressing table. The quality is outstanding. Better than any showroom furniture at half the price!"</p><div class="rev-author"><div class="rev-avatar">R</div><div><div class="rev-name">Rajesh Kumar</div><div class="rev-loc">Sonari, Jamshedpur</div></div></div></div>
+      <div class="rev-card reveal d1"><div class="rev-stars">★★★★★</div><p class="rev-text">"They made a custom L-shaped sofa exactly to my room's odd dimensions. The fabric quality, the stitching, everything is perfect. On-time delivery too. Highly recommended!"</p><div class="rev-author"><div class="rev-avatar">P</div><div><div class="rev-name">Priya Sharma</div><div class="rev-loc">Adityapur, Jamshedpur</div></div></div></div>
+      <div class="rev-card reveal d2"><div class="rev-stars">★★★★★</div><p class="rev-text">"Office fit-out for 20 workstations done in just 3 weeks. Professional team, clean finish, sturdy desks. Everyone in our office compliments the furniture. Will order again!"</p><div class="rev-author"><div class="rev-avatar">A</div><div><div class="rev-name">Amit Singh</div><div class="rev-loc">Bistupur, Jamshedpur</div></div></div></div>
+      <div class="rev-card reveal"><div class="rev-stars">★★★★★</div><p class="rev-text">"Ordered a custom study table and bookshelf combo for my kids. The finish is smooth, drawers slide perfectly, and it's super sturdy. My kids absolutely love it!"</p><div class="rev-author"><div class="rev-avatar">S</div><div><div class="rev-name">Sunita Mehta</div><div class="rev-loc">Sakchi, Jamshedpur</div></div></div></div>
+      <div class="rev-card reveal d1"><div class="rev-stars">★★★★★</div><p class="rev-text">"Very honest pricing, no hidden charges. They showed material samples, explained everything, and delivered exactly what was promised. The dining table looks amazing!"</p><div class="rev-author"><div class="rev-avatar">M</div><div><div class="rev-name">Mohan Gupta</div><div class="rev-loc">Telco Colony, Jamshedpur</div></div></div></div>
+      <div class="rev-card reveal d2"><div class="rev-stars">★★★★★</div><p class="rev-text">"Pankaj bhai is very helpful and patient. Took time to understand what I wanted, suggested better alternatives, and the final wardrobe turned out far better than I imagined!"</p><div class="rev-author"><div class="rev-avatar">D</div><div><div class="rev-name">Deepa Verma</div><div class="rev-loc">Mango, Jamshedpur</div></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ══ CTA ══ -->
+<!-- CTA -->
 <div class="cta-section">
-  <div class="cta-box reveal">
-    <div>
-      <h2 class="cta-title">Ready to Furnish Your <em>Dream Home?</em></h2>
-      <p class="cta-sub">Free consultation and quote within 24 hours. No obligation — just expert advice tailored to your budget and space.</p>
-    </div>
-    <div class="cta-btns">
-      <a href="https://wa.me/919234734763?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn-wa">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="#ffffff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp for Free Quote
-      </a>
-      <a href="tel:+919234734763" class="btn-call">📞 Call: +91 92347 34763</a>
-    </div>
-  </div>
+  <div class="cta-box reveal"><div><h2 class="cta-title">Ready to Furnish Your <em>Dream Home?</em></h2><p class="cta-sub">Free consultation and quote within 24 hours. No obligation — just expert advice tailored to your budget and space.</p></div><div class="cta-btns"><a href="https://wa.me/919234734763?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn-wa"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="#ffffff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp for Free Quote</a><a href="tel:+919234734763" class="btn-call">📞 Call: +91 92347 34763</a></div></div>
 </div>
 
-<!-- ══ FORM ══ -->
+<!-- FORM -->
 <section class="form-section" id="custom-order">
-  <div class="form-grid">
-    <div class="reveal">
-      <div class="eyebrow-row"><div class="bar"></div><span>Custom Orders</span></div>
-      <h2 class="section-h2">Tell Us What<br>You <em>Envision</em></h2>
-      <p class="section-body">Have a unique idea? Share your requirements and we'll get back within 24 hours with a free quote.</p>
-      <div class="val-grid" style="margin-top:28px">
-        <div class="val-chip">⚡ 24h Response</div>
-        <div class="val-chip">📏 Any Size</div>
-        <div class="val-chip">🎨 Any Design</div>
-        <div class="val-chip">💸 Fair Pricing</div>
-      </div>
-    </div>
-    <div class="form-card reveal d2">
-      <h3>Request a Free Quote</h3>
-      <p>Fill in your details and we'll design it for you.</p>
-      <div class="form-row">
-        <div class="fgroup"><label>Your Name</label><input type="text" id="fname" placeholder="Full name"></div>
-        <div class="fgroup"><label>Phone Number</label><input type="tel" id="fphone" placeholder="+91 00000 00000"></div>
-      </div>
-      <div class="fgroup">
-        <label>Furniture Type</label>
-        <select id="ftype">
-          <option value="">Select furniture type</option>
-          <option>Bed / Bedroom Set</option>
-          <option>Sofa / Sofa Set</option>
-          <option>Wardrobe / Almirah</option>
-          <option>Dining Table & Chairs</option>
-          <option>Office Furniture</option>
-          <option>Study Table / Bookshelf</option>
-          <option>TV Unit / Entertainment</option>
-          <option>Kitchen Furniture</option>
-          <option>Other / Custom Design</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <div class="fgroup">
-          <label>Approx. Budget (₹)</label>
-          <select id="fbudget">
-            <option>Below ₹10,000</option>
-            <option>₹10,000 – ₹25,000</option>
-            <option>₹25,000 – ₹50,000</option>
-            <option>₹50,000 – ₹1,00,000</option>
-            <option>Above ₹1,00,000</option>
-          </select>
-        </div>
-        <div class="fgroup"><label>City / Area</label><input type="text" id="fcity" placeholder="e.g. Sonari, Jamshedpur"></div>
-      </div>
+  <div class="form-grid"><div class="reveal"><div class="eyebrow-row"><div class="bar"></div><span>Custom Orders</span></div><h2 class="section-h2">Tell Us What<br>You <em>Envision</em></h2><p class="section-body">Have a unique idea? Share your requirements and we'll get back within 24 hours with a free quote.</p><div class="val-grid"><div class="val-chip">⚡ 24h Response</div><div class="val-chip">📏 Any Size</div><div class="val-chip">🎨 Any Design</div><div class="val-chip">💸 Fair Pricing</div></div></div>
+    <div class="form-card reveal d2"><h3>Request a Free Quote</h3><p>Fill in your details and we'll design it for you.</p>
+      <div class="form-row"><div class="fgroup"><label>Your Name</label><input type="text" id="fname" placeholder="Full name"></div><div class="fgroup"><label>Phone Number</label><input type="tel" id="fphone" placeholder="+91 00000 00000"></div></div>
+      <div class="fgroup"><label>Furniture Type</label><select id="ftype"><option value="">Select furniture type</option><option>Bed / Bedroom Set</option><option>Sofa / Sofa Set</option><option>Wardrobe / Almirah</option><option>Dining Table & Chairs</option><option>Office Furniture</option><option>Study Table / Bookshelf</option><option>TV Unit / Entertainment</option><option>Kitchen Furniture</option><option>Other / Custom Design</option></select></div>
+      <div class="form-row"><div class="fgroup"><label>Approx. Budget (₹)</label><select id="fbudget"><option>Below ₹10,000</option><option>₹10,000 – ₹25,000</option><option>₹25,000 – ₹50,000</option><option>₹50,000 – ₹1,00,000</option><option>Above ₹1,00,000</option></select></div><div class="fgroup"><label>City / Area</label><input type="text" id="fcity" placeholder="e.g. Sonari, Jamshedpur"></div></div>
       <div class="fgroup"><label>Describe Your Requirement</label><textarea id="fdesc" placeholder="Dimensions, design reference, material preference, any special requirements..."></textarea></div>
       <button class="btn-submit" onclick="submitForm()">Submit Request →</button>
     </div>
   </div>
 </section>
 
-<!-- ══ CONTACT ══ -->
+<!-- CONTACT -->
 <section class="contact-section" id="contact">
-  <div class="contact-grid">
-    <div class="reveal">
-      <div class="eyebrow-row"><div class="bar"></div><span>Visit Us</span></div>
-      <h2 class="section-h2">Come See Our<br><em>Showroom</em></h2>
-      <p class="section-body">Walk into our workshop showroom and see the craftsmanship first-hand. Samples, material swatches, and our team ready to assist.</p>
-      <div class="contact-cards">
-        <div class="c-card"><div class="c-ico">📍</div><div><div class="c-lbl">Address</div><div class="c-val">Shop No. 1, Bal-Vihar, Old Sonari Basti,<br>Vikash Nagar, Sonari,<br>Jamshedpur, Jharkhand – 831011</div></div></div>
-        <div class="c-card"><div class="c-ico">📞</div><div><div class="c-lbl">Phone / WhatsApp</div><div class="c-val"><a href="tel:+919234734763">+91 92347 34763</a></div></div></div>
-        <div class="c-card"><div class="c-ico">🕐</div><div><div class="c-lbl">Working Hours</div><div class="c-val">Mon – Sat: 9:00 AM – 8:00 PM<br>Sunday: 10:00 AM – 5:00 PM</div></div></div>
-        <div class="c-card"><div class="c-ico">⭐</div><div><div class="c-lbl">Google Rating</div><div class="c-val">5.0 ★★★★★ — Jamshedpur's Top Rated Furniture Maker</div></div></div>
-      </div>
-    </div>
-    <div class="map-wrap reveal d2">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.8!2d86.1655691!3d22.8263905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f5e5bbaaec7ba9%3A0xeb9554160eb0fac2!2sPankaj%20Furniture!5e0!3m2!1sen!2sin!4v1" allowfullscreen loading="lazy" title="Pankaj Furniture Location"></iframe>
-    </div>
+  <div class="contact-grid"><div class="reveal"><div class="eyebrow-row"><div class="bar"></div><span>Visit Us</span></div><h2 class="section-h2">Come See Our<br><em>Showroom</em></h2><p class="section-body">Walk into our workshop showroom and see the craftsmanship first-hand. Samples, material swatches, and our team ready to assist.</p><div class="contact-cards"><div class="c-card"><div class="c-ico">📍</div><div><div class="c-lbl">Address</div><div class="c-val">Shop No. 1, Bal-Vihar, Old Sonari Basti,<br>Vikash Nagar, Sonari,<br>Jamshedpur, Jharkhand – 831011</div></div></div><div class="c-card"><div class="c-ico">📞</div><div><div class="c-lbl">Phone / WhatsApp</div><div class="c-val"><a href="tel:+919234734763">+91 92347 34763</a></div></div></div><div class="c-card"><div class="c-ico">🕐</div><div><div class="c-lbl">Working Hours</div><div class="c-val">Mon – Sat: 9:00 AM – 8:00 PM<br>Sunday: 10:00 AM – 5:00 PM</div></div></div><div class="c-card"><div class="c-ico">⭐</div><div><div class="c-lbl">Google Rating</div><div class="c-val">5.0 ★★★★★ — Jamshedpur's Top Rated Furniture Maker</div></div></div></div></div>
+    <div class="map-wrap reveal d2"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.8!2d86.1655691!3d22.8263905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f5e5bbaaec7ba9%3A0xeb9554160eb0fac2!2sPankaj%20Furniture!5e0!3m2!1sen!2sin!4v1" allowfullscreen loading="lazy" title="Pankaj Furniture Location"></iframe></div>
   </div>
 </section>
 
-<!-- ══ FOOTER ══ -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <div class="f-brand">Pankaj <span>Furniture</span></div>
-        <p class="f-tagline">Crafting Comfort, Designing Dreams — Jamshedpur's most trusted custom furniture manufacturer since 1999.</p>
-        <div style="display:flex;gap:14px;margin-top:20px">
-          <a href="https://wa.me/919234734763" style="color:var(--gold);text-decoration:none;font-size:.83rem;font-weight:500">💬 WhatsApp</a>
-          <a href="tel:+919234734763" style="color:var(--gold);text-decoration:none;font-size:.83rem;font-weight:500">📞 Call Now</a>
-        </div>
-      </div>
-      <div class="f-col">
-        <h4>Products</h4>
-        <ul class="f-links">
-          <li><a href="#products">Beds & Bedroom Sets</a></li>
-          <li><a href="#products">Sofas & Sectionals</a></li>
-          <li><a href="#products">Wardrobes</a></li>
-          <li><a href="#products">Dining Tables</a></li>
-          <li><a href="#products">Office Furniture</a></li>
-          <li><a href="#custom-order">Custom Orders</a></li>
-        </ul>
-      </div>
-      <div class="f-col">
-        <h4>Company</h4>
-        <ul class="f-links">
-          <li><a href="#about">About Us</a></li>
-          <li><a href="gallery.html" onclick="goToGallery(event, 'gallery.html')">Full Gallery</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#custom-order">Get a Quote</a></li>
-        </ul>
-      </div>
-      <div class="f-col">
-        <h4>Contact</h4>
-        <ul class="f-links">
-          <li><a href="tel:+919234734763">+91 92347 34763</a></li>
-          <li><a href="#contact">Sonari, Jamshedpur</a></li>
-          <li><a href="#contact">Jharkhand – 831011</a></li>
-          <li style="padding-top:6px"><a href="https://wa.me/919234734763" style="color:var(--gold-lt)">WhatsApp Us ↗</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="f-copy">© 2024 Pankaj Furniture, Jamshedpur. All rights reserved.</div>
-      <div class="f-badges">
-        <div class="f-badge">5.0 ★ Google</div>
-        <div class="f-badge">ISO Quality</div>
-        <div class="f-badge">26+ Years</div>
-      </div>
-    </div>
-  </div>
-</footer>
+<!-- FOOTER -->
+<footer><div class="footer-inner"><div class="footer-top"><div><div class="f-brand">Pankaj <span>Furniture</span></div><p class="f-tagline">Crafting Comfort, Designing Dreams — Jamshedpur's most trusted custom furniture manufacturer since 1999.</p><div style="display:flex;gap:14px;margin-top:20px"><a href="https://wa.me/919234734763" style="color:var(--gold);text-decoration:none;font-size:.83rem;font-weight:500">💬 WhatsApp</a><a href="tel:+919234734763" style="color:var(--gold);text-decoration:none;font-size:.83rem;font-weight:500">📞 Call Now</a></div></div><div class="f-col"><h4>Products</h4><ul class="f-links"><li><a href="#products">Beds & Bedroom Sets</a></li><li><a href="#products">Sofas & Sectionals</a></li><li><a href="#products">Wardrobes</a></li><li><a href="#products">Dining Tables</a></li><li><a href="#products">Office Furniture</a></li><li><a href="#custom-order">Custom Orders</a></li></ul></div><div class="f-col"><h4>Company</h4><ul class="f-links"><li><a href="#about">About Us</a></li><li><a href="gallery.html" onclick="goToGallery(event, 'gallery.html')">Full Gallery</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contact</a></li><li><a href="#custom-order">Get a Quote</a></li></ul></div><div class="f-col"><h4>Contact</h4><ul class="f-links"><li><a href="tel:+919234734763">+91 92347 34763</a></li><li><a href="#contact">Sonari, Jamshedpur</a></li><li><a href="#contact">Jharkhand – 831011</a></li><li style="padding-top:6px"><a href="https://wa.me/919234734763" style="color:var(--gold-lt)">WhatsApp Us ↗</a></li></ul></div></div><div class="footer-bottom"><div class="f-copy">© 2024 Pankaj Furniture, Jamshedpur. All rights reserved.</div><div class="f-badges"><div class="f-badge">5.0 ★ Google</div><div class="f-badge">ISO Quality</div><div class="f-badge">15+ Years</div></div></div></div></footer>
 
 <script>
-/* ── LOADER ── */
-window.addEventListener('load', () => {
-  setTimeout(() => document.getElementById('loader').classList.add('gone'), 2000);
-});
+window.addEventListener('load', () => setTimeout(() => document.getElementById('loader').classList.add('gone'), 2000));
 
-/* ── NAV SCROLL ── */
 const nav = document.getElementById('mainNav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
-});
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
 
-/* ── THEME TOGGLE ── */
-const themeBtn = document.getElementById('themeBtn');
-let isDark = false; // default light
-function toggleTheme() {
-  isDark = !isDark;
-  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-  themeBtn.textContent = isDark ? '☀️' : '🌙';
-}
+let isDark = false;
+function toggleTheme() { isDark = !isDark; document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light'); document.getElementById('themeBtn').textContent = isDark ? '☀️' : '🌙'; }
 
-/* ── MOBILE NAV ── */
 function toggleMob() { document.getElementById('mobNav').classList.toggle('open'); }
-function closeMob()  { document.getElementById('mobNav').classList.remove('open'); }
+function closeMob() { document.getElementById('mobNav').classList.remove('open'); }
 
-/* ── HERO SLIDESHOW ── */
-const slides = document.querySelectorAll('.hero-slide');
-const dots   = document.querySelectorAll('.hero-dot');
-let current  = 0;
-let timer;
+const slides = document.querySelectorAll('.hero-slide'), dots = document.querySelectorAll('.hero-dot');
+let current = 0, timer;
+function goToSlide(n) { slides[current].classList.remove('active'); dots[current].classList.remove('active'); current = n; slides[current].classList.add('active'); dots[current].classList.add('active'); clearInterval(timer); timer = setInterval(() => goToSlide((current + 1) % slides.length), 5000); }
+timer = setInterval(() => goToSlide((current + 1) % slides.length), 5000);
 
-function goToSlide(n) {
-  slides[current].classList.remove('active');
-  dots[current].classList.remove('active');
-  current = n;
-  slides[current].classList.add('active');
-  dots[current].classList.add('active');
-  clearInterval(timer);
-  timer = setInterval(nextSlide, 5000);
-}
-
-function nextSlide() {
-  goToSlide((current + 1) % slides.length);
-}
-timer = setInterval(nextSlide, 5000);
-
-/* ── SCROLL REVEAL ── */
-const revObs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
-}, { threshold: 0.07 });
+const revObs = new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('active')), { threshold: 0.07 });
 document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
 
-/* ── SMOOTH ANCHORS ── */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const tgt = document.querySelector(a.getAttribute('href'));
-    if (tgt) { e.preventDefault(); tgt.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-  });
-});
+document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => { const tgt = document.querySelector(a.getAttribute('href')); if (tgt) { e.preventDefault(); tgt.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }));
 
-/* ── PAGE TRANSITION TO GALLERY ── */
-function goToGallery(event, url) {
-  if (event) event.preventDefault();
-  const dest = url || 'gallery.html';
-  const overlay = document.getElementById('page-transition');
-  overlay.classList.add('active');
-  setTimeout(() => {
-    window.location.href = dest;
-  }, 550);
-}
+function goToGallery(event, url) { if (event) event.preventDefault(); const dest = url || 'gallery.html'; document.getElementById('page-transition').classList.add('active'); setTimeout(() => window.location.href = dest, 550); }
 
-/* ── FORM ── */
 function submitForm() {
-  const name  = document.getElementById('fname').value.trim();
-  const phone = document.getElementById('fphone').value.trim();
-  const type  = document.getElementById('ftype').value;
-  if (!name)  { alert('Please enter your name.'); return; }
-  if (!phone) { alert('Please enter your phone number.'); return; }
-  if (!type)  { alert('Please select a furniture type.'); return; }
-  const desc   = document.getElementById('fdesc').value.trim();
-  const budget = document.getElementById('fbudget').value;
-  const city   = document.getElementById('fcity').value.trim();
+  const name = document.getElementById('fname').value.trim(), phone = document.getElementById('fphone').value.trim(), type = document.getElementById('ftype').value;
+  if (!name) return alert('Please enter your name.'); if (!phone) return alert('Please enter your phone number.'); if (!type) return alert('Please select a furniture type.');
+  const desc = document.getElementById('fdesc').value.trim(), budget = document.getElementById('fbudget').value, city = document.getElementById('fcity').value.trim();
   const msg = `Hello Pankaj Furniture!%0A%0A*New Enquiry*%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AType: ${encodeURIComponent(type)}%0ABudget: ${encodeURIComponent(budget)}%0AArea: ${encodeURIComponent(city || 'Jamshedpur')}%0ADetails: ${encodeURIComponent(desc || '—')}`;
   window.open(`https://wa.me/919234734763?text=${msg}`, '_blank');
-  const t = document.getElementById('toast');
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 4000);
+  const t = document.getElementById('toast'); t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 4000);
 }
 </script>
 </body>
